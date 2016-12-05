@@ -1,0 +1,59 @@
+<?php
+
+
+/**
+ * Implements hook_install().
+ */
+function rsc_cl_install() {
+
+  /*
+   * Enable hit counts for content using the statistics module
+   */
+
+  variable_set('statistics_count_content_views', TRUE);
+
+  // Create a role for people that may view hit counts
+
+  $rolename = 'view hit counts';
+  // Try to load it to see if it exists
+  $role = user_role_load_by_name($rolename);
+  if (!$role) {
+    // create it, since it does not exist
+    $role = new stdClass();
+    $role->name = $rolename;
+    user_role_save($role);
+    // load the newly created role, to get the rid
+    $role = user_role_load_by_name($rolename);
+  }
+
+  // Assign the permission to view content hits to the role
+  user_role_change_permissions($role->rid, array(
+    'view post access counter' => TRUE,
+  ));
+
+  /*
+   * Change site information
+   */
+  variable_set('site_name', 'Christian Library');
+  variable_set('site_slogan', 'A Christian library in every home!');
+  variable_set('site_mail', 'info@christianstudylibrary.org');
+
+  /*
+   * Set up mime mail module
+   */
+  variable_set('mimemail_name', 'Christian Library');
+  variable_set('mimemail_mail', 'info@christianstudylibrary.org');
+  variable_set('mimemail_linkonly', 0);
+  variable_set('mimemail_simple_address', 0);
+  variable_set('mimemail_sitestyle', 0);
+  variable_set('mimemail_textonly', 0);
+
+}
+
+
+/**
+ * Implements hook_uninstall().
+ */
+function rsc_cl_uninstall() {
+
+}

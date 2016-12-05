@@ -1,0 +1,9 @@
+name = RSC Christian Library
+description = Specific hacks for Christian Library. 
+core = 7.x
+package = "RSC"
+
+dependencies[] = statistics
+dependencies[] = mimemail
+
+configure = admin/config/development/rsc-cl
