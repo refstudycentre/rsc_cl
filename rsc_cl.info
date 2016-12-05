@@ -7,3 +7,4 @@ dependencies[] = statistics
 dependencies[] = mimemail
 
 configure = admin/config/development/rsc-cl
+version=7.x-1.x
