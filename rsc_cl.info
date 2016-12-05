@@ -1,5 +1,5 @@
 name = RSC Christian Library
-description = Specific hacks for Christian Library. 
+description = Miscellaneous hacks, settings, Drupal mods, etc. for Christian Library
 core = 7.x
 package = "RSC"
 

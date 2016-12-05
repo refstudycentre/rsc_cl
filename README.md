@@ -1,5 +1,5 @@
 # rsc_cl
-Specific hacks for [Christian Library](www.christianstudylibrary.org).
+Miscellaneous hacks, settings, Drupal mods, etc. for [Christian Library](www.christianstudylibrary.org).
 
 What it does:
 - Enables hit counts for content using the statistics module
